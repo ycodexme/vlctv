@@ -291,7 +291,7 @@ class StartActivity : FragmentActivity() {
                 }
             }.start()
             val mainIntent = Intent(Intent.ACTION_VIEW)
-                    .setClassName(applicationContext, if (tv) TV_MAIN_ACTIVITY else MOBILE_MAIN_ACTIVITY)
+                    .setClassName(applicationContext, if (tv) TV_MAIN_ACTIVITY else "org.videolan.vlc.iptv.IPTVHomeActivity")
                     .putExtra(EXTRA_FIRST_RUN, firstRun)
                     .putExtra(EXTRA_UPGRADE, upgrade)
             if (tv && intent.hasExtra(EXTRA_PATH)) mainIntent.putExtra(EXTRA_PATH, intent.getStringExtra(EXTRA_PATH))

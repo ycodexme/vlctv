@@ -66,6 +66,7 @@ gradlew
 gradle*/
 .gradle/
 build/
+gradle-*.zip
 vlc-android/build/
 java-libs/WheelView/build/
 libVLC/build/

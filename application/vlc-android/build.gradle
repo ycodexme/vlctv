@@ -7,8 +7,13 @@ plugins {
 }
 
 android {
+    compileSdk 34
 
     dataBinding {
+        enabled = true
+    }
+    
+    viewBinding {
         enabled = true
     }
     packagingOptions {
@@ -22,7 +27,7 @@ android {
 
         resValue "string", "build_time", buildTime(project)
         resValue "string", "build_host", hostName(project)
-        resValue "string", "build_revision", revision()
+        resValue "string", "build_revision", revision(project)
         resValue "string", "changelog", changelog()
         resValue "string", "dav1d_version", dav1dVersion()
         resValue 'string', 'tv_provider_authority', "${rootProject.ext.appId}.tv"
@@ -203,6 +208,10 @@ dependencies {
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation 'com.jaredrummler:colorpicker:1.1.0'
 
+    // Glide for IPTV image loading
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
+
     // Tests
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
@@ -255,13 +264,18 @@ static def hostName(project) {
     return "${System.getProperty("user.name")}@${InetAddress.localHost.hostName}"
 }
 
-def revision() {
+static def revision(project) {
     def code = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'rev-parse', '--short', 'HEAD'
-        standardOutput = code
+    try {
+        project.exec {
+            commandLine 'git', 'rev-parse', '--short', 'HEAD'
+            standardOutput = code
+            ignoreExitValue = true
+        }
+        return code.toString().trim()
+    } catch (Exception e) {
+        return "unknown"
     }
-    return code.toString()
 }
 
 def dav1dVersion() {

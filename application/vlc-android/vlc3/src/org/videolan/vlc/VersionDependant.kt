@@ -1,6 +1,7 @@
 package org.videolan.vlc
 
 import android.content.Context
+import androidx.core.net.toUri
 import org.videolan.libvlc.MediaPlayer
 import org.videolan.libvlc.interfaces.IMedia
 import org.videolan.vlc.gui.dialogs.adapters.VlcTrack
@@ -9,7 +10,7 @@ import org.videolan.vlc.gui.dialogs.adapters.VlcTrack
  * ************************************************************************
  *  Vlc3.kt
  * *************************************************************************
- * Copyright © 2022 VLC authors and VideoLAN
+ * Copyright 2022 VLC authors and VideoLAN
  * Author: Nicolas POMEPUY
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

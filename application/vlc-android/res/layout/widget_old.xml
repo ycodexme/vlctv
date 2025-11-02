@@ -41,7 +41,7 @@
             android:src="@drawable/ic_widget_icon" />
 
     <LinearLayout
-            android:id="@+id/widget_container"
+            android:id="@+id/widget_text_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -62,7 +62,7 @@
                 android:textSize="16sp" />
 
         <TextView
-                android:id="@+id/songName"
+                android:id="@+id/clickHereText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

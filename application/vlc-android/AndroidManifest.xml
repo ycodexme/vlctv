@@ -963,6 +963,30 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        
+        <!-- IPTV Activities -->
+        <activity
+            android:name=".iptv.IPTVHomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VLC"
+            android:screenOrientation="portrait"
+            android:label="IPTV"/>
+        
+        <activity
+            android:name=".iptv.CategoryDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VLC"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".iptv.IPTVHomeActivity"/>
+        
+        <activity
+            android:name=".iptv.SearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VLC"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".iptv.IPTVHomeActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        
         <activity
             android:name=".gui.MainActivity"
             android:icon="@drawable/icon"
