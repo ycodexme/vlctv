@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/frenchtv_logo"
+        android:label="French TV"
+        android:theme="@style/Theme.FrenchTV">
+        
+        <activity
+            android:name="org.videolan.vlc.iptv.IPTVHomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="org.videolan.vlc.iptv.CategoryDetailActivity" />
+        <activity android:name="org.videolan.vlc.iptv.SearchActivity" />
+        <activity android:name="org.videolan.vlc.iptv.VideoPlayerActivity" />
+        
+    </application>
+    
+</manifest>

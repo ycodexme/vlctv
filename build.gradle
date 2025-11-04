@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.android_plugin_version = '8.11.1'
+    ext.android_plugin_version = '8.1.0'
     ext.kotlin_version = '1.9.10'
     ext.kotlinx_version = '1.7.1'
     repositories {
@@ -26,6 +26,15 @@ allprojects {
         google()
         mavenCentral()
         mavenLocal()
+    }
+    
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+            force "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+        }
     }
     tasks.withType(Javadoc) {
         // Ignores errors from mavenAndroidJavadocs task
